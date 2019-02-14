@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">My Traffic Control Bee</string>
+
+    <string-array name="location">
+        <item>Gulshan</item>
+        <item>Dhanmondi</item>
+        <item>Shahbag</item>
+        <item>Mohakhali</item>
+        <item>FramGate</item>
+        <item>Uttara</item>
+        <item>NotunBazar</item>
+        <item>Mouchak</item>
+        <item>Mirpur</item>
+        <item>KaziPara</item>
+
+    </string-array>
 </resources>
