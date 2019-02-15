@@ -18,16 +18,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name: "
+            android:text="Time: "
             android:textSize="20dp"
             android:textStyle="bold"
 
     />
-        <EditText
-            android:id="@+id/name"
+        <TextView
+            android:id="@+id/timeAndDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Your Name"
+            android:hint="Your Time"
+            android:textSize="20dp"
             />
 
 
@@ -45,14 +46,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Location: "
+            android:text="Location: "
             android:textSize="20dp"
             android:textStyle="bold"/>
 
-        <Spinner
-            android:id="@+id/locationSpinner"
+        <EditText
+            android:id="@+id/alertLocation"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Spinner>
+            android:layout_height="wrap_content"
+            android:hint="Your Location"
+            />
 
     </LinearLayout>
 
@@ -91,20 +94,46 @@
         android:layout_gravity="center">
 
         <TextView
+            android:id="@+id/selectPicture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Picture"
+            android:text="Select Picture"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:textStyle="bold"
             />
+
         <ImageView
-            android:id="@+id/Picture"
+            android:id="@+id/capturePicture"
             android:layout_width="250dp"
             android:src="@drawable/ic_add_black_24dp"
             android:layout_height="150dp"
-            android:Text="Image"/>
+            />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+    <TextView
+        android:id="@+id/gpsAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS Location"
+
+        />
+
+    <Button
+        android:id="@+id/locationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_location_on_black_24dp"
+        />
 
     </LinearLayout>
 
@@ -114,5 +143,12 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:layout_gravity="center"/>
+
+    <ProgressBar
+        android:id="@+id/alertProgressBar"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

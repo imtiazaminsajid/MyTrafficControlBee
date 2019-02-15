@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Traffic Control Bee</string>
 
-    <string-array name="location">
+    <string-array name="location_name">
         <item>Gulshan</item>
         <item>Dhanmondi</item>
         <item>Shahbag</item>
@@ -12,6 +12,6 @@
         <item>Mouchak</item>
         <item>Mirpur</item>
         <item>KaziPara</item>
-
     </string-array>
+
 </resources>
