@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -14,11 +15,11 @@
             android:id="@+id/sampleLocation"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Gulshan"
-            android:textStyle="italic"
             android:textColor="#302b2b"
             android:textSize="20sp"
-            android:gravity="center"
+            android:textStyle="italic"
 
             />
 
@@ -38,9 +39,8 @@
 
     <TextView
         android:id="@+id/sampleAlertText"
-        android:layout_width="240dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="5dp"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
         android:text="Abcdefjgalkjlkgaklshjdkfghajkshaskjdfgkjahkjfghaksdf"

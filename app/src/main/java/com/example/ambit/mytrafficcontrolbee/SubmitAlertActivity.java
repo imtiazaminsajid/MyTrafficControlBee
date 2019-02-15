@@ -19,8 +19,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.dynamic.IFragmentWrapper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -56,6 +58,8 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_alert);
+
+        this.setTitle("Alert Message");
 
         timeAndDate = findViewById(R.id.timeAndDate);
         gpsAddress = findViewById(R.id.gpsAddress);
@@ -140,10 +144,23 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
                         alertProgressBar.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), "Alert Message Updated Successfully", Toast.LENGTH_SHORT).show();
 
-                        AlertMessage alertMessageClass = new AlertMessage(timeandDate, location, alertMessages, taskSnapshot.getStorage().getDownloadUrl().toString());
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+
+                        while (!uriTask.isSuccessful());
+
+                        Uri downloadUri = uriTask.getResult();
+
+                        AlertMessage alertMessageClass = new AlertMessage(timeandDate, location, alertMessages, downloadUri.toString());
 
                         String alertMessageClassId = databaseReference.push().getKey();
                         databaseReference.child(alertMessageClassId).setValue(alertMessageClass);
+
+                        finish();
+
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+
+
 
 
                     }

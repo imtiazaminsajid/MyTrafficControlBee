@@ -41,7 +41,7 @@
             android:layout_height="50dp"
             android:hint="example@abc"
             android:layout_marginLeft="5dp"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:gravity="center"
             />
 
@@ -72,7 +72,7 @@
             android:layout_marginLeft="5dp"
             android:hint="*****"
             android:inputType="numberPassword"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:gravity="center"
             />
 

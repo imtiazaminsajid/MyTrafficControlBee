@@ -26,6 +26,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     ProgressBar registrationprogressBar;
 
 
+
     private FirebaseAuth mAuth;
 
     @Override
@@ -49,15 +50,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         mAuth = FirebaseAuth.getInstance();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //mAuth.addAuthStateListener(this);
-
-        if (mAuth.getCurrentUser()!=null){
-
-        }
-    }
 
     @Override
     public void onClick(View v) {
@@ -160,4 +152,5 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             }
         });
     }
+
 }

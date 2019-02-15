@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Traffic Control Bee</string>
+    <string name="app_name">Traffic Control Bee</string>
 
     <string-array name="location_name">
         <item>Gulshan</item>

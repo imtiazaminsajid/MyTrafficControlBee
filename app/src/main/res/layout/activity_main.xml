@@ -17,20 +17,20 @@
 
         />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="370dp"
         android:orientation="vertical"
         >
 
-        <ListView
-            android:id="@+id/alertListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="#f2b973">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:backgroundTint="#efda9a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-
-        </ListView>
+        </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 
@@ -42,6 +42,27 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
+        />
+
+
+    <TextView
+        android:id="@+id/seeTraffic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See Traffic"
+        android:background="#ec4444"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBarForMainActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         />
 
 
