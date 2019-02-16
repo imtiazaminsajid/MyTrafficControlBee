@@ -7,32 +7,59 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+    <TextView
+        android:id="@+id/totalPostCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Alert: 00"
+        android:textSize="20sp"
+        android:textColor="#3519ed"
+        android:textStyle="bold"
+        />
     <Button
         android:id="@+id/postAlertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Post Alert"
+        android:text="Post an Alert"
         android:textSize="10sp"
-        android:layout_marginLeft="290dp"
+        android:textStyle="bold"
+        android:background="#edc614"
+        android:gravity="center"
+        android:layout_marginLeft="150dp"
 
         />
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="370dp"
+        android:layout_height="390dp"
         android:orientation="vertical"
         >
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:backgroundTint="#efda9a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
 
     <TextView
 
@@ -41,7 +68,7 @@
         android:text="Highlighted Area: "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         />
 
 
@@ -54,16 +81,15 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+
         />
 
-    <ProgressBar
-        android:id="@+id/progressBarForMainActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        />
+    </LinearLayout>
+
 
 
 </LinearLayout>

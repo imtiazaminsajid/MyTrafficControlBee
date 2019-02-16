@@ -77,7 +77,7 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
 
 
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm aaa");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm aaa");
         String time = format.format(calendar.getTime());
         timeAndDate.setText(time);
 

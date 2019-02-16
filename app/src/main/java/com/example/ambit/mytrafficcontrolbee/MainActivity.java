@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapterForAlertShow myAdapterForAlertShow;
     private List<AlertMessage> alertMessageList;
     private DatabaseReference databaseReference;
-    private TextView seeTraffic;
+    private TextView seeTraffic, totalPostCount;
 
 
     @Override
@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
                 myAdapterForAlertShow = new MyAdapterForAlertShow(getApplicationContext(),alertMessageList);
                 recyclerView.setAdapter(myAdapterForAlertShow);
+
+                int TotalPost = alertMessageList.size();
+                totalPostCount = findViewById(R.id.totalPostCount);
+                totalPostCount.setText("Total Alert: "+TotalPost);
 
 
 
@@ -131,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
 }

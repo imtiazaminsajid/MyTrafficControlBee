@@ -54,6 +54,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
                 signIn();
 
+
                 break;
 
             case R.id.signinDontHaveAccount:
