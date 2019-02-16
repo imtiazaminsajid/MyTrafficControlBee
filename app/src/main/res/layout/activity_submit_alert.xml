@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".SubmitAlertActivity">
 
     <LinearLayout
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"
             android:text="Time: "
             android:textSize="20dp"
+            android:textColor="#fffcfc"
             android:textStyle="bold"
 
     />
@@ -47,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Location: "
+            android:textColor="#fffcfc"
             android:textSize="20dp"
             android:textStyle="bold"/>
 
@@ -73,6 +76,7 @@
             android:layout_height="wrap_content"
             android:text="Message"
             android:textSize="20dp"
+            android:textColor="#fffcfc"
             android:textStyle="bold"
 
             />
@@ -99,6 +103,7 @@
             android:layout_height="wrap_content"
             android:text="Select Picture"
             android:textSize="20dp"
+            android:textColor="#fffcfc"
             android:layout_gravity="center"
             android:textStyle="bold"
             />
@@ -139,7 +144,7 @@
 
     <Button
         android:id="@+id/submitAlert"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:layout_gravity="center"/>
