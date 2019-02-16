@@ -98,8 +98,9 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
                 if (storageTask!=null && storageTask.isInProgress()){
                     Toast.makeText(getApplicationContext(), "Submit in Progress", Toast.LENGTH_SHORT).show();
                 } else {
-                    submitData();
-                }
+
+                        submitData();
+                    }
 
                 break;
         }
