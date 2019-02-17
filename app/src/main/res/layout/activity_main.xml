@@ -42,12 +42,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="420dp"
+        android:layout_marginTop="6dp"
         android:orientation="vertical"
         >
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:backgroundTint="#efda9a"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -58,6 +58,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/button_shape_for_recylerview"
         android:orientation="horizontal"
         >
 

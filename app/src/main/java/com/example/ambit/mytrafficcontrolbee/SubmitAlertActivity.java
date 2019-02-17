@@ -36,10 +36,11 @@ import java.nio.charset.MalformedInputException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class SubmitAlertActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView timeAndDate, gpsAddress;
+    TextView timeAndDate;
 
     EditText alertMessage, alertLocation;
     ImageView capturedImage;
@@ -62,7 +63,7 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
         this.setTitle("Alert Message");
 
         timeAndDate = findViewById(R.id.timeAndDate);
-        gpsAddress = findViewById(R.id.gpsAddress);
+        //gpsAddress = findViewById(R.id.gpsAddress);
         alertLocation = findViewById(R.id.alertLocation);
         alertMessage = findViewById(R.id.alertEditText);
         capturedImage = findViewById(R.id.capturePicture);
@@ -79,6 +80,7 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm aaa");
         String time = format.format(calendar.getTime());
+
         timeAndDate.setText(time);
 
     }
