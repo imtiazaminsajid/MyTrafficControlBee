@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:background="@drawable/button_shape_for_sample_layout"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/button_shape_for_sample_layout"
         android:orientation="vertical">
 
         <TextView
@@ -18,9 +18,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Gulshan"
-            android:textColor="#b62802"
-            android:textSize="20sp"
-            android:textStyle="italic"
+            android:textColor="#000000"
+            android:textSize="21sp"
+            android:textStyle="bold"
 
             />
 
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:text="12:30PM"
             android:textStyle="italic"
-            android:textColor="#1b3bca"
-            android:textSize="16sp"
+            android:textColor="#252628"
+            android:textSize="14sp"
             android:gravity="center"
             />
 
@@ -40,24 +40,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#F4E3C4"
+        android:layout_marginLeft="8dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="horizontal">
 
     <TextView
         android:id="@+id/sampleAlertText"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:textColor="#e4e9fa"
+        android:textColor="#030303"
+        android:layout_gravity="center"
         android:text="Abcdefjgalkjlkgaklshjdkfghajkshaskjdfgkjahkjfghaksdf"
         />
 
     <ImageView
         android:id="@+id/sampleImageView"
         android:src="@drawable/ic_image_black_24dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:layout_gravity="center"/>
 
     </LinearLayout>
