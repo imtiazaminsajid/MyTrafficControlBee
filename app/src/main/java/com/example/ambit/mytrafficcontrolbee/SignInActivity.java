@@ -20,7 +20,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     EditText signInEmail, signInPassword;
     Button signInButton;
-    TextView dontHaveAccount;
+    TextView dontHaveAccount, TotalAlert;
     private FirebaseAuth mAuth;
 
     private ProgressBar progressBar;
@@ -33,6 +33,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         signInEmail = findViewById(R.id.signInEmail);
         signInPassword = findViewById(R.id.signInPassword);
+        TotalAlert = findViewById(R.id.TotalAlert);
 
         signInButton = findViewById(R.id.signInButton);
         progressBar = findViewById(R.id.signInProgressBar);

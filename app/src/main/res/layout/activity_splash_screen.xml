@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#030303"
+    android:background="#575247"
     android:orientation="vertical"
     tools:context=".SplashScreen">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/trafficlight"
+        android:src="@drawable/traffic_logo"
         android:layout_marginTop="180dp"
         android:layout_gravity="center"
         />
@@ -31,7 +31,7 @@
         android:textSize="30dp"
         android:fontFamily="casual"
         android:textStyle="bold"
-        android:textColor="#ff0308"
+        android:textColor="#baba91"
         />
 
         <TextView
@@ -52,7 +52,7 @@
             android:textSize="30dp"
             android:fontFamily="casual"
             android:textStyle="bold"
-            android:textColor="#55e92b"
+            android:textColor="#b3b478"
             />
 
     </LinearLayout>

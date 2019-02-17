@@ -5,87 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="#FFFCDB"
     tools:context=".SubmitAlertActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:background="#575247"
+        android:weightSum="6"
         android:orientation="horizontal"
-        android:gravity="center"
         >
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Time: "
-            android:textSize="20dp"
-            android:textColor="#fffcfc"
-            android:textStyle="bold"
-
-    />
-        <TextView
-            android:id="@+id/timeAndDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Your Time"
-            android:textSize="20dp"
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="35sp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_menu_black_24dp"
+            android:layout_gravity="center"
+            android:clickable="true"
             />
 
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Location: "
-            android:textColor="#fffcfc"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/alertLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Your Location"
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50sp"
+            android:layout_weight="4"
+            android:src="@drawable/traffic_logo"
+            android:gravity="center_horizontal"
+            android:clickable="true"
             />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/postAlertButton"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/person"
+            android:layout_gravity="center"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        >
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Message"
-            android:textSize="20dp"
-            android:textColor="#fffcfc"
-            android:textStyle="bold"
-
-            />
-        <EditText
-            android:id="@+id/alertEditText"
-            android:layout_width="250dp"
-            android:layout_height="150dp"
-            android:hint="Your Message"
-            android:gravity="center"
             />
 
 
@@ -93,46 +49,169 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        >
+
 
         <TextView
-            android:id="@+id/selectPicture"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Picture"
-            android:textSize="20dp"
-            android:textColor="#fffcfc"
+            android:text="Time: "
+            android:textSize="22sp"
+            android:fontFamily="serif"
+            android:textColor="#000"
             android:layout_gravity="center"
-            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/timeAndDate"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:hint="Your Name"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#D3F591"
+            android:layout_marginLeft="43dp"
+            android:inputType="textEmailAddress"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location: "
+            android:textSize="22sp"
+            android:fontFamily="serif"
+            android:textColor="#000"
+            android:layout_gravity="center"
+
+            />
+
+        <EditText
+            android:id="@+id/alertLocation"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:hint="Your Name"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#D3F591"
+            android:layout_marginLeft="3dp"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Message: "
+            android:textSize="22sp"
+            android:fontFamily="serif"
+            android:textColor="#000"
+            android:layout_gravity="center"
+
+            />
+
+        <EditText
+            android:id="@+id/alertEditText"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:hint="Your Name"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#D3F591"
+            android:layout_marginLeft="10dp"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Picture: "
+            android:textSize="22sp"
+            android:fontFamily="serif"
+            android:textColor="#000"
+            android:layout_gravity="center"
+
             />
 
         <ImageView
             android:id="@+id/capturePicture"
-            android:layout_width="250dp"
-            android:src="@drawable/ic_add_black_24dp"
-            android:layout_height="150dp"
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:hint="Your Name"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_image_black_24dp"
+            android:background="#D3F591"
+            android:layout_marginLeft="22dp"
+            android:inputType="textEmailAddress"
             />
+
+
 
 
     </LinearLayout>
 
 
-
     <Button
         android:id="@+id/submitAlert"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:background="@drawable/button_shape_signin_registration"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:background="@drawable/button_shape_for_sample_layout"
+        />
 
     <ProgressBar
         android:id="@+id/alertProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:visibility="gone"
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        />
 
 </LinearLayout>

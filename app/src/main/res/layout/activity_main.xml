@@ -22,6 +22,7 @@
             android:layout_weight="1"
             android:src="@drawable/ic_menu_black_24dp"
             android:layout_gravity="center"
+            android:clickable="true"
             />
 
         <ImageView

@@ -9,6 +9,10 @@ public class AlertMessage {
     public AlertMessage() {
     }
 
+    public AlertMessage(String location) {
+        this.location = location;
+    }
+
     public AlertMessage(String timeAndDate, String location, String message) {
         this.timeAndDate = timeAndDate;
         this.location = location;

@@ -9,13 +9,17 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView postAlert;
     private RecyclerView recyclerView;
+    private GridView gridView;
     private MyAdapterForAlertShow myAdapterForAlertShow;
+    private AdapterForLocationGridView adapterForLocationGridView;
+    private List<AlertMessage> alertMessageListForGridview;
     private List<AlertMessage> alertMessageList;
     private DatabaseReference databaseReference;
     private TextView seeTraffic, totalPostCount;
@@ -52,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        gridView = findViewById(R.id.gridViewForHomeActivity);
+
         postAlert = findViewById(R.id.postAlertButton);
         seeTraffic = findViewById(R.id.seeTraffic);
         seeTraffic.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         alertMessageList = new ArrayList<>();
+        alertMessageListForGridview =  new ArrayList<>();
         //Collections.reverse(alertMessageList);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("AlertMessage");
@@ -91,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
             }
 
             @Override
@@ -103,6 +112,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                for (DataSnapshot dataSnapshot2 : dataSnapshot.getChildren()){
+//                    AlertMessage alertMessage = dataSnapshot2.getValue(AlertMessage.class);
+//                    Collections.reverse(alertMessageListForGridview);
+//                    alertMessageListForGridview.add(alertMessage);
+//                    Collections.reverse(alertMessageListForGridview);
+//
+//                }
+//
+//                adapterForLocationGridView =  new AdapterForLocationGridView(getApplicationContext(),alertMessageListForGridview );
+//                gridView.setAdapter(adapterForLocationGridView);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+
         postAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     @Override
