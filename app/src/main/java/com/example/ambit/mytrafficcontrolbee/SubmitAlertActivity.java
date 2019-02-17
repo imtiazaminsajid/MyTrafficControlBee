@@ -120,7 +120,6 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
         final String timeandDate = timeAndDate.getText().toString().trim();
         final String location =  alertLocation.getText().toString().trim();
         final String alertMessages = alertMessage.getText().toString().trim();
-        //String alertMessages = alertMessage.getText().toString().trim();
 
         if (location.isEmpty()){
             alertLocation.setError("Enter Location");
@@ -133,7 +132,9 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
             return;
         }
 
+
         StorageReference reference = storageReference.child(System.currentTimeMillis()+"."+getFileExtention(imageUri));
+
 
         alertProgressBar.setVisibility(View.VISIBLE);
 

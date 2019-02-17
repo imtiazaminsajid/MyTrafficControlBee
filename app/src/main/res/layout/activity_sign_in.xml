@@ -93,6 +93,7 @@
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold|italic"
+        android:background="@drawable/button_shape_signin_registration"
 
         />
 
