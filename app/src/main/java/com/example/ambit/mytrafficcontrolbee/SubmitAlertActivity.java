@@ -47,6 +47,7 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
     Button submit;
     ProgressBar alertProgressBar;
     private Uri imageUri;
+    private ImageView menuAlertMessage;
 
     DatabaseReference databaseReference;
     StorageReference storageReference;
@@ -72,6 +73,9 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
 
         submit.setOnClickListener(this);
         capturedImage.setOnClickListener(this);
+
+        menuAlertMessage = findViewById(R.id.menuAlertMessage);
+        menuAlertMessage.setOnClickListener(this);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("AlertMessage");
         storageReference = FirebaseStorage.getInstance().getReference("Uploads");
@@ -104,6 +108,12 @@ public class SubmitAlertActivity extends AppCompatActivity implements View.OnCli
                         submitData();
                     }
 
+                break;
+
+            case R.id.menuAlertMessage:
+                finish();
+                Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent2);
                 break;
         }
 

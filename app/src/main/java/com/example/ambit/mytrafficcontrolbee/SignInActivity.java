@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     Button signInButton;
     TextView dontHaveAccount, TotalAlert;
     private FirebaseAuth mAuth;
+
+    private ImageView menuSignIn;
 
     private ProgressBar progressBar;
 
@@ -62,6 +65,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         customAdapterLocation = new CustomAdapterLocation(SignInActivity.this, modelClassLocationArrayList);
 
         mAuth = FirebaseAuth.getInstance();
+
+        menuSignIn = findViewById(R.id.menuSignIn);
+        menuSignIn.setOnClickListener(this);
     }
 
     @Override
@@ -77,10 +83,20 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
             case R.id.signinDontHaveAccount:
+                finish();
                 Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.menuSignIn:
+                finish();
+                Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent2);
+                break;
+
         }
+
+
 
     }
 

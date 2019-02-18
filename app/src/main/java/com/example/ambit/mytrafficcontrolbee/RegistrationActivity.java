@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,14 +32,13 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     Button registrationButton;
     TextView haveAnAccount;
     ProgressBar registrationprogressBar;
+    private ImageView menuRegistration;
 
 
     private CustomAdapterLocation customAdapterLocation;
     private ArrayList<ModelClassLocation> modelClassLocationArrayList;
 
     private GridView gridView;
-
-
 
     private FirebaseAuth mAuth;
 
@@ -53,6 +53,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         registrationName = findViewById(R.id.registrationName);
 
         registrationButton  = findViewById(R.id.registrationButton);
+
+        menuRegistration= findViewById(R.id.menuRegistration);
+        menuRegistration.setOnClickListener(this);
 
         haveAnAccount = findViewById(R.id.registrationHaveAccount);
         registrationprogressBar = findViewById(R.id.registrationProgressBar);
@@ -82,9 +85,17 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 break;
 
             case R.id.registrationHaveAccount:
+                finish();
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.menuRegistration:
+                finish();
+                Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent2);
+                break;
+
         }
 
     }

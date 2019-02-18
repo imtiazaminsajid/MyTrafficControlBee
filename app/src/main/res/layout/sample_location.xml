@@ -10,10 +10,11 @@
         android:layout_height="wrap_content"
         android:text="Gulashan"
         android:textColor="#000"
-        android:layout_marginTop="5dp"
+        android:layout_margin="1dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textSize="15dp"
+        android:textSize="18sp"
+        android:padding="3dp"
         android:textStyle="bold|italic"
         android:background="@drawable/button_shape_for_sample_layout"
         />
