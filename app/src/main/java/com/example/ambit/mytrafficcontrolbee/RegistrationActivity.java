@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +17,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +31,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     Button registrationButton;
     TextView haveAnAccount;
     ProgressBar registrationprogressBar;
+
+
+    private CustomAdapterLocation customAdapterLocation;
+    private ArrayList<ModelClassLocation> modelClassLocationArrayList;
+
+    private GridView gridView;
 
 
 
@@ -48,6 +61,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         haveAnAccount.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
+
+
+        gridView = findViewById(R.id.gridViewFroRegistration);
+        modelClassLocationArrayList = new ArrayList<>();
+        customAdapterLocation = new CustomAdapterLocation(RegistrationActivity.this, modelClassLocationArrayList);
+
     }
 
 
@@ -151,6 +170,35 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+
+        DatabaseReference databaseReferenceForLocation = FirebaseDatabase.getInstance().getReference("AlertMessage");
+        databaseReferenceForLocation.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                modelClassLocationArrayList.clear();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    ModelClassLocation locationName = snapshot.getValue(ModelClassLocation.class);
+                    modelClassLocationArrayList.add(locationName);
+                }
+
+
+                gridView.setAdapter(customAdapterLocation);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        super.onStart();
     }
 
 }

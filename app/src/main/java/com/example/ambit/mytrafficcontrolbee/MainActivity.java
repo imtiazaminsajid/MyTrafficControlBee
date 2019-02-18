@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,11 +43,13 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private GridView gridView;
     private MyAdapterForAlertShow myAdapterForAlertShow;
-    private AdapterForLocationGridView adapterForLocationGridView;
-    private List<AlertMessage> alertMessageListForGridview;
     private List<AlertMessage> alertMessageList;
     private DatabaseReference databaseReference;
     private TextView seeTraffic, totalPostCount;
+
+    private ModelClassLocation modelClassLocation;
+    private CustomAdapterLocation customAdapterLocation;
+    private ArrayList<ModelClassLocation> modelClassLocationArrayList;
 
 
     @Override
@@ -60,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         gridView = findViewById(R.id.gridViewForHomeActivity);
+//        gridView.setHasFixedSize(true);
+//        gridView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         postAlert = findViewById(R.id.postAlertButton);
         seeTraffic = findViewById(R.id.seeTraffic);
@@ -73,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         alertMessageList = new ArrayList<>();
-        alertMessageListForGridview =  new ArrayList<>();
+
+
+        modelClassLocationArrayList = new ArrayList<>();
+        customAdapterLocation = new CustomAdapterLocation(MainActivity.this, modelClassLocationArrayList);
+
         //Collections.reverse(alertMessageList);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("AlertMessage");
@@ -100,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
             }
 
             @Override
@@ -112,20 +123,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        databaseReference.addValueEventListener(new ValueEventListener() {
+        DatabaseReference databaseReferenceForLocation = FirebaseDatabase.getInstance().getReference("AlertMessage");
+        databaseReferenceForLocation.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                modelClassLocationArrayList.clear();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    ModelClassLocation locationName = snapshot.getValue(ModelClassLocation.class);
+                    Collections.reverse(modelClassLocationArrayList);
+                    modelClassLocationArrayList.add(locationName);
+                    Collections.reverse(modelClassLocationArrayList);
+                }
+
+
+                gridView.setAdapter(customAdapterLocation);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+//        DatabaseReference databaseReferenceForLocation = FirebaseDatabase.getInstance().getReference("AlertMessage").child("location");
+//
+//        databaseReferenceForLocation.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //
-//                for (DataSnapshot dataSnapshot2 : dataSnapshot.getChildren()){
-//                    AlertMessage alertMessage = dataSnapshot2.getValue(AlertMessage.class);
-//                    Collections.reverse(alertMessageListForGridview);
-//                    alertMessageListForGridview.add(alertMessage);
-//                    Collections.reverse(alertMessageListForGridview);
+//                modelClassLocationArrayList.clear();
 //
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//                    ModelClassLocation locationName = snapshot.getValue(ModelClassLocation.class);
+//                    modelClassLocationArrayList.add(locationName);
 //                }
 //
-//                adapterForLocationGridView =  new AdapterForLocationGridView(getApplicationContext(),alertMessageListForGridview );
-//                gridView.setAdapter(adapterForLocationGridView);
+//                customAdapterLocation = new CustomAdapterLocation(MainActivity.this, modelClassLocationArrayList);
+//
+//                gridView.setAdapter(customAdapterLocation);
 //
 //            }
 //
@@ -134,6 +172,44 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        });
+
+//        databaseReferenceForLocation.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//                modelClassLocationArrayList.clear();
+//
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//                    ModelClassLocation locationName = snapshot.getValue(ModelClassLocation.class);
+//                    modelClassLocationArrayList.add(locationName);
+//                }
+//
+//                gridView.setAdapter(customAdapterLocation);
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+
 
 
         postAlert.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +250,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-
+//    @Override
+//    protected void onStart() {
+//
+//        DatabaseReference databaseReferenceForLocation = FirebaseDatabase.getInstance().getReference("AlertMessage");
+//        databaseReferenceForLocation.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                modelClassLocationArrayList.clear();
+//
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//                    ModelClassLocation locationName = snapshot.getValue(ModelClassLocation.class);
+//                    modelClassLocationArrayList.add(locationName);
+//                }
+//
+//
+//                gridView.setAdapter(customAdapterLocation);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//        super.onStart();
+//    }
 }

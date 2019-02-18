@@ -204,13 +204,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp">
+        android:layout_height="100dp">
 
         <GridView
-            android:id="@+id/gridView"
+            android:id="@+id/gridViewForSignin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numColumns="4"
+            android:numColumns="3"
             >
 
 
